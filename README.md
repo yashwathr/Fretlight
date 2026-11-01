@@ -1,47 +1,48 @@
-# Fretlight
-
-**A pocket guitar that runs in your phone's browser. By Yashwath.**
-
-Fretlight is a playable guitar built as a single HTML file with no build step or framework. Every note is generated in real time with the Web Audio API using Karplus-Strong plucked-string synthesis, so it uses no audio samples. Fretting and strumming are separate actions, as on a real guitar. You pick a chord with one hand and strum the strings with the other.
-
-## Features
-
-### Playing
-- **Chord tiles:** 17 open and barre chords (E, Em, Em7, A, Am, D, Dsus4, G, C, F, Bm and more). Selecting a chord sets the fretting and makes no sound by itself.
-- **Strum zone:** tap a string to pluck it, or swipe across the strings to strum.
-- **String bend:** hold a string to bend it up a whole step and release.
-- **Auto vibrato** on sustained notes, with an adjustable amount.
-
-### Auto-strum
-- Continuous strumming that keeps its rhythm through chord changes.
-- **Custom strum patterns:** build your own up/down/rest pattern, or pick a preset (Folk, Pop ballad, Reggae skank, Waltz).
-- **Per-string control:** toggle which strings take part in the auto-strum.
-- Upstrokes catch only the top strings, so they sound different from downstrokes.
-
-### Sound
-- **4 amp models:** Acoustic, Clean Electric, Crunch and Lead.
-- Controls for sustain, tone, body resonance, vibrato, reverb and volume.
-- A pick-attack transient and small pitch variations on each note.
-- 7 tunings (Standard, Drop D, DADGAD, Open G and more) and a capo.
-
-### Practice tools
-- **Backing beat:** synthesized drums (Rock, Folk, Ballad, Reggae) locked to the auto-strum tempo.
-- **Song practice:** 16 well-known chord progressions. The app cycles through the chords with the tempo and strum pattern while you play along.
-- **Metronome** with tap tempo.
-- **Looper** for recording and replaying phrases.
-
-## Tech
-- Plain HTML, CSS and JavaScript in one file
-- Web Audio API for all sound (Karplus-Strong synthesis, drum synthesis and effects)
-- Note buffers are cached and pre-warmed, which keeps latency low on mid-range phones
-- A flat, GPU-light UI with no blur filters or heavy animations
-- Works offline once loaded, apart from the Google Fonts request
-
-## Usage
-Open `index.html` in a mobile browser. On Android Chrome you can use **Menu → Add to Home screen** to install it as an app. For local testing, open the file in any modern desktop browser.
-
-## Notes
-Song entries contain chord names and strum patterns only, with no lyrics or melodies.
-
-## License
-Add your preferred license here, for example MIT.
+# 🎸 Fretlight
+A highly realistic, interactive virtual guitar built for the web and Android. 
+Fretlight isn't just a soundboard of pre-recorded audio samples. It uses **Karplus-Strong physical string modeling synthesis** via the WebAudio API to generate guitar strings in real-time. This allows for dynamic muting, variable sustain, pitch bends, body resonance, and real-time amp modeling directly in the browser.
+## ✨ Features
+- **Realistic Physics & Audio Engine**
+  - **Karplus-Strong Synthesis:** Strings decay naturally based on thickness, tension, and simulated body resonance.
+  - **Amp & Tone:** Switch between Acoustic, Clean, Crunch, and Lead amps with real-time drive curves and EQ.
+  - **Tactile Play:** True multi-touch strum zone. Tap, swipe, or hold strings to trigger realistic whole-step pitch bends.
+  
+- **Play & Practice**
+  - **Chord Library:** Extensive library of open and barre chords (automatically voiced based on your tuning).
+  - **Song Practice Mode:** Pick a song (like *Teri Meri Kahani* or *Let It Be*), and the app will guide you through the chord progression in time with the tempo.
+  - **Auto-Strum:** Build custom strumming patterns (D U -) and let the engine play the rhythm for you.
+- **Rhythm Tools**
+  - **Drum Machine:** Built-in backing beats (Rock, Folk, Ballad, Reggae).
+  - **Metronome:** Tap-tempo enabled visual and audible metronome.
+  - **Looper:** Record your strumming sequences and layer them over a timeline.
+- **Smart Setup**
+  - **Tunings:** Standard, Drop D, Half-down, Open G, Open D, and DADGAD.
+  - **Capo:** Place a virtual capo on any fret up to 9; the engine dynamically shifts pitches and chord voicings.
+## 🛠️ Tech Stack
+- **Frontend:** React 19, TypeScript, Vite, Tailwind CSS v4.
+- **Audio:** Native WebAudio API (Oscillators, BiquadFilters, WaveShapers, Delay/Convolvers).
+- **Native Android Wrapper:** Capacitor (with native status bar and haptic feedback plugins).
+- **Icons:** Lucide React.
+## 🚀 Local Development (Web)
+To run the web version locally:
+```bash
+# 1. Install dependencies
+npm install
+# 2. Start the Vite development server
+npm run dev
+# 3. Build for production
+npm run build
+```
+## 📱 Android Build
+Fretlight is configured as a fully native Android app via Capacitor, featuring a dark status bar, hardware back-button navigation, and native haptic feedback when plucking strings.
+```bash
+# Generate icons, build the web bundle, and sync into the Android project
+npm run android
+# Open in Android Studio to run on a device or build an APK
+npm run android:open
+```
+For full instructions on generating keystores, building release APKs, and sideloading, see [README-ANDROID.md](./README-ANDROID.md).
+## 🤫 Easter Egg
+Tap the Fretlight logo in the top left **7 times rapidly** to activate 🎸 **SHRED MODE**.
+---
+*Designed and developed by Yashwath.*
