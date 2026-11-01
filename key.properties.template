@@ -1,0 +1,7 @@
+# Copy this file to "key.properties" (same folder) and fill in your values.
+# NEVER commit key.properties or your .jks keystore to version control.
+storePassword=YOUR_KEYSTORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=fretlight
+# Path to your keystore, relative to the android/ folder
+storeFile=keystore/fretlight-release.jks
